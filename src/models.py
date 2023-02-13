@@ -35,5 +35,26 @@ class User(Base):
     username = Column(String(250), nullable=False, unique=True)
     password = Column(String(250))
 
+class Planet(Base):
+    __tablename__ = 'planet'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False)
+    climate = Column(String(250))
+    terrain = Column(String(250))
+    population = Column(Integer)
+    diameter = Column(Integer)
+    gravity = Column(String(250))
+
+    class Character(Base):
+    __tablename__ = 'character'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False)
+    birth_year = Column(String(250))
+    gender = Column(String(250))
+    height = Column(String(250))
+    eye_color = Column(String(250))
+    skin_color = Column(String(250))
+    
+
 ## Draw from SQLAlchemy base
 render_er(Base, 'diagram.png')
