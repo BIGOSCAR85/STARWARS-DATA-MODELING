@@ -63,5 +63,29 @@ class Vehicle(Base):
     passenger = Column(Integer)
     model = Column(String(250))
 
+class Planet_favorite(Base):
+    __tablename__ = 'planet_favorite'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
+    planet_id = Column(Integer, ForeignKey('planet.id'))
+    planet = relationship(Planet)
+
+class Character_favorite(Base):
+    __tablename__ = 'character_favorite'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
+    planet_id = Column(Integer, ForeignKey('character.id'))
+    character = relationship(Character)
+
+class Vehicle_favorite(Base):
+    __tablename__ = 'vehicle_favorite'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
+    planet_id = Column(Integer, ForeignKey('vehicle.id'))
+    vehicle = relationship(Vehicle)
+
 ## Draw from SQLAlchemy base
 render_er(Base, 'diagram.png')
